@@ -6,7 +6,7 @@ module Smartcore
       response = execute_request
       if response.status == success_status
         data = JSON.parse(response.body)
-        Smartcore::CheckEmailPresenceResponse.new( { status: true, api_id: data[:api_id] } )
+        Smartcore::CheckEmailPresenceResponse.new( { status: true, api_id: data['api_id'] } )
       elsif response.status == 404
         Smartcore::CheckEmailPresenceResponse.new( { status: false } )
       else

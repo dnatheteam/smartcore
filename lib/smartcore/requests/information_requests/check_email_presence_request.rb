@@ -5,9 +5,9 @@ module Smartcore
     def execute
       response = execute_request
       if response.status == success_status
-        true
+        { status: true, api_id: response.api_id }
       elsif response.status == 404
-        false
+        { status: false }
       else
         process_error(response)
       end

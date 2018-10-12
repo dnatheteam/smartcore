@@ -105,6 +105,10 @@ module Smartcore
       '/sessions/check_email_presence'
     end
 
+    def information_check_phone_path
+      '/sessions/check_phone_presence'
+    end
+
     def document_scans_list_path
       '/document_scans'
     end

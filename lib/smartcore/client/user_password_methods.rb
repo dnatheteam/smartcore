@@ -13,9 +13,10 @@ module Smartcore
                                                           confirmation_token: token).execute
     end
 
-    def user_password_reset_request(email)
+    def user_password_reset_request(email=nil, phone_number=nil)
       Smartcore::UserProfilePasswordSetRequest.new(api_token: self.token,
-                                                   email: email).execute
+                                                   email: email,
+                                                   phone_number: phone_number).execute
     end
 
     def user_password_reset_confirm(token, new_password)

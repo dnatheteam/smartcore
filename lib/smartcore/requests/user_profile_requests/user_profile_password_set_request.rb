@@ -2,6 +2,7 @@ module Smartcore
   class UserProfilePasswordSetRequest < TokenRequest
 
     attribute :email,        String
+    attribute :phone_number, String
     attribute :new_password, String
 
     def execute

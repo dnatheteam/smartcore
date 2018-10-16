@@ -9,10 +9,7 @@ module Smartcore
     attribute :order,        Hash
 
     def execute
-      puts '--SMARTCORE---UserProfilesRequest'
       response = execute_request_with_token
-      puts response.inspect
-
       if response.status == success_status
         if profile_id.present? || email.present?
           Smartcore::UserProfileWithDocumentsResponse.new(JSON.parse(response.body))

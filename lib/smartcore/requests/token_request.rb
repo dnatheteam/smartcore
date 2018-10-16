@@ -5,11 +5,7 @@ module Smartcore
     def post_json_with_token(path: nil, data: {})
       retry_count = 0
       begin
-        Rails.logger.info "--SMARTCORE --- post_json_with_token ----"
         response = post_json(path: path, data: data.reverse_merge(api_token: api_token))
-        Rails.logger.info "--SMARTCORE --- post_json_with_token --- response -- start"
-        Rails.logger.info response.inspect
-        Rails.logger.info "--SMARTCORE --- post_json_with_token --- response -- end"
         process_error(response) unless response.status == 200
         response
       rescue Smartcore::ApiClientInvalidToken

@@ -42,7 +42,8 @@ module Smartcore
         f.ssl.verify = false
         f.response :logger                  # log requests to STDOUT
         f.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-        f.options.timeout = 120
+        f.options.timeout = 140
+        f.options.open_timeout = 120
       end
 
       conn.post do |req|

@@ -9,7 +9,10 @@ module Smartcore
     attribute :order,        Hash
 
     def execute
+      Rails.logger.info '--SMARTCORE--'
       response = execute_request_with_token
+      Rails.logger.info "====response status ===== #{response.status} ====="
+
       if response.status == success_status
         if profile_id.present? || email.present?
           Smartcore::UserProfileWithDocumentsResponse.new(JSON.parse(response.body))

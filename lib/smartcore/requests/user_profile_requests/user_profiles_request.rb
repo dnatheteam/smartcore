@@ -11,6 +11,7 @@ module Smartcore
     def execute
       response = execute_request_with_token
 
+      Rails.logger.info "--SMARTCORE --- status --- #{response.status}"
       if response.status == success_status
         if profile_id.present? || email.present?
           Smartcore::UserProfileWithDocumentsResponse.new(JSON.parse(response.body))

@@ -2,6 +2,7 @@ module Smartcore
   class UserProfileSignInRequest < TokenRequest
 
     attribute :email,    String
+    attribute :phone_number,    String
     attribute :password, String
     attribute :user_ip, String
 

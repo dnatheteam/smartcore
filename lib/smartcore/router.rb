@@ -145,6 +145,14 @@ module Smartcore
       '/user/confirm_email'
     end
 
+    def profiles_union_path
+      '/user/union'
+    end
+
+    def confirm_union_email_path
+      '/user/confirm_union_email'
+    end
+
     def staff_verification_path
       '/staff_verification'
     end

@@ -61,6 +61,12 @@ module Smartcore
                                                     avatar: base64doc).execute
     end
 
+    def user_profile_union(user_token, email)
+      Smartcore::UserProfilesUnionRequest.new(api_token: self.token,
+                                              user_token: user_token,
+                                              email: email).execute
+    end
+
     def upload_signature(user_token, base64doc)
       Smartcore::UserProfileSignatureUploadRequest.new(api_token: self.token,
                                                        user_token: user_token,
@@ -87,7 +93,7 @@ module Smartcore
       }
       request.new(options).execute
     end
-          
+
     def send_user_session_data(user_token, check_in, active_time, url, title)
       request = Smartcore::UserProfileSessionRequest
       options = {

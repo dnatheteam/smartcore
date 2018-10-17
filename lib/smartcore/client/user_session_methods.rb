@@ -1,9 +1,10 @@
 module Smartcore
   class Client
     # Login User Methods
-    def user_session_sign_in(email, password, user_ip = nil)
+    def user_session_sign_in(email, password, user_ip = nil, phone_number = nil)
       Smartcore::UserProfileSignInRequest.new(api_token: self.token,
                                               email: email,
+                                              phone_number: phone_number,
                                               password: password,
                                               user_ip: user_ip).execute
     end

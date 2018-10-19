@@ -8,6 +8,7 @@ module Smartcore
     attribute :login,               String
     attribute :email,               String
     attribute :phone_number,        String
+    attribute :union_email,         String
 
     attribute :gender,              String # male|female
     attribute :birthday,            Date

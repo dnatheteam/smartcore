@@ -45,4 +45,5 @@ require 'smartcore/requests/profile_validation_requests/social_screen_upload_req
 require 'smartcore/requests/profile_validation_requests/document_scan_upload_request'
 require 'smartcore/requests/profile_validation_requests/document_scan_complete_verification_request'
 require 'smartcore/requests/profile_validation_requests/staff_verification_request'
+require 'smartcore/requests/profile_validation_requests/send_email_request'
 

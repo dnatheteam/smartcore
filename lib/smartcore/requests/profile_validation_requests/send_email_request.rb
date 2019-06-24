@@ -1,6 +1,7 @@
 module Smartcore
   class SendEmailRequest < TokenRequest
     attribute :email,    String
+    attribute :token,    String
 
     def execute
       response = execute_request_with_token

@@ -149,6 +149,10 @@ module Smartcore
       '/user/union'
     end
 
+    def send_confirm_email_path
+      '/user/send_confirm_email'
+    end
+
     def confirm_union_email_path
       '/user/confirm_union_email'
     end

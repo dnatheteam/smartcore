@@ -1,5 +1,5 @@
 module Smartcore
-  class SendConfirmationEmailResponse < SuccessResponse
+  class SendConfirmationSmsResponse < SuccessResponse
     attribute :status,  Boolean
     attribute :api_id,  String
   end

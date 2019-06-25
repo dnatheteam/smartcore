@@ -44,6 +44,10 @@ module Smartcore
       '/sessions/create'
     end
 
+    def user_newregistration_path
+      '/sessions/newcreate'
+    end
+
     def user_create_path
       '/user/create'
     end

@@ -38,6 +38,12 @@ module Smartcore
                                                                       skip_validate: skip_validate)).execute
     end
 
+    def user_profile_newregistration(user_params, skip_validate: false, user_ip: nil)
+      Smartcore::UserProfileNewRegistrationRequest.new(user_params.merge(api_token: self.token,
+                                                                      user_ip: user_ip,
+                                                                      skip_validate: skip_validate)).execute
+    end
+
     def user_profile(user_token)
       Smartcore::UserProfileRequest.new(api_token: self.token,
                                         user_token: user_token).execute

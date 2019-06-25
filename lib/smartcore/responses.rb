@@ -20,4 +20,5 @@ require 'smartcore/responses/user_profile_responses/user_profile_delete_list_res
 require 'smartcore/responses/user_profile_responses/user_profile_password_set_response'
 require 'smartcore/responses/user_profile_responses/user_profile_with_documents_response'
 require 'smartcore/responses/user_profile_responses/send_confirmation_email_response'
+require 'smartcore/responses/user_profile_responses/send_confirmation_sms_response'
 require 'smartcore/responses/profile_validation_responses/document_scan_list_response'

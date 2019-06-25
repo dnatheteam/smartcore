@@ -1,6 +1,7 @@
 module Smartcore
-  class ConfirmEmailRequest < TokenRequest
-    attribute :token, String
+  class ConfirmPhoneRequest < TokenRequest
+    attribute :phone_number,    String
+    attribute :pincode,    String
 
     def execute
       response = execute_request_with_token
@@ -12,7 +13,7 @@ module Smartcore
     end
 
     def path
-      router.confirm_email_path
+      router.confirm_phone_path
     end
   end
 end

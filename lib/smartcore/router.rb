@@ -149,12 +149,20 @@ module Smartcore
       '/user/confirm_email'
     end
 
+    def confirm_phone_path
+      '/user/confirm_phone'
+    end
+
     def profiles_union_path
       '/user/union'
     end
 
     def send_confirm_email_path
       '/user/send_confirm_email'
+    end
+
+    def send_confirm_sms_path
+      '/user/send_confirm_sms'
     end
 
     def confirm_union_email_path

@@ -1,6 +1,7 @@
 module Smartcore
   class SendSmsRequest < TokenRequest
     attribute :phone_number,    String
+    attribute :reg_source, String
 
     def execute
       response = execute_request_with_token

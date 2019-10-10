@@ -100,7 +100,6 @@ module Smartcore
       '/countries'
     end
 
-
     def information_brands_path
       '/brands'
     end
@@ -111,6 +110,10 @@ module Smartcore
 
     def information_check_phone_path
       '/sessions/check_phone_presence'
+    end
+
+    def information_current_site_documents_path
+      '/site_current_documents'
     end
 
     def document_scans_list_path

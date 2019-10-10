@@ -8,6 +8,7 @@ require 'smartcore/models/geo_data/city'
 require 'smartcore/models/geo_data/region'
 require 'smartcore/models/geo_data/country'
 
+require 'smartcore/models/site_documents/site_document'
 
 require 'smartcore/models/user_data/user_activity'
 require 'smartcore/models/user_data/oauth_credentail'

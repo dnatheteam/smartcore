@@ -2,7 +2,7 @@ module Smartcore
   class GetSiteDocumentsRequest < BaseRequest
 
     def execute
-      response = execute_request
+      response = execute_request_with_token
       if response.status == success_status
         Smartcore::SiteDocumentsResponse.new(JSON.parse(response.body))
       else

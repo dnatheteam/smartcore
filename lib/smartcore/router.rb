@@ -182,5 +182,13 @@ module Smartcore
     def user_profile_session_path
       '/user/session/get_data'
     end
+
+    def user_accepted_documents_path
+      '/user/accepted_documents'
+    end
+
+    def user_accept_documents_path
+      '/user/accept_documents'
+    end
   end
 end

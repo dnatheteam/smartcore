@@ -113,5 +113,15 @@ module Smartcore
       request.new(options).execute
     end
 
+    def user_accepted_documents(user_token)
+      Smartcore::UserAcceptedDocumentsRequest.new(api_token: self.token,
+                                                  user_token: user_token).execute
+    end
+
+    def user_accept_documents(user_token)
+      Smartcore::UserAcceptDocumentsRequest.new(api_token: self.token,
+                                                user_token: user_token).execute
+    end
+
   end
 end

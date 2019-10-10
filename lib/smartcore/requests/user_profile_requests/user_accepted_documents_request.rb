@@ -1,5 +1,6 @@
 module Smartcore
-  class GetSiteDocumentsRequest < TokenRequest
+  class UserAcceptedDocumentsRequest < TokenRequest
+    attribute :user_token, String
 
     def execute
       response = execute_request_with_token
@@ -11,7 +12,7 @@ module Smartcore
     end
 
     def path
-      router.information_current_site_documents_path
+      router.user_accepted_documents_path
     end
   end
 end

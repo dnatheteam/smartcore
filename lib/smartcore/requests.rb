@@ -39,6 +39,8 @@ require 'smartcore/requests/user_profile_requests/user_profile_signature_upload_
 require 'smartcore/requests/user_profile_requests/user_profile_set_mark_request'
 require 'smartcore/requests/user_profile_requests/user_profile_set_register_source_request.rb'
 require 'smartcore/requests/user_profile_requests/user_profile_session_request'
+require 'smartcore/requests/user_profile_requests/user_accept_documents_request'
+require 'smartcore/requests/user_profile_requests/user_accepted_documents_request'
 require 'smartcore/requests/profile_validation_requests/confirm_email_request'
 require 'smartcore/requests/profile_validation_requests/confirm_phone_request'
 require 'smartcore/requests/profile_validation_requests/confirm_union_email_request'

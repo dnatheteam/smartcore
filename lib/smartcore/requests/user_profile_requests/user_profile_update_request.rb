@@ -15,7 +15,7 @@ module Smartcore
     def execute
       Rails.logger.info "--SMARTCORE --- UserProfileUpdateRequest"
       response = execute_request_with_token
-      if response.status == success_status
+      if response.code == success_status
         Smartcore::UserProfileResponse.new(JSON.parse(response.body)).profile
       else
         process_error(response)
@@ -27,7 +27,7 @@ module Smartcore
     end
 
     def process_error(response)
-      if response.status == 422
+      if response.code == 422
         response_json = JSON.parse(response.body)
         if response_json['error'] == 'validation_error'
           profile = Smartcore::Models::User.new(response_json['profile'])

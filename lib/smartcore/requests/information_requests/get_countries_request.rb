@@ -3,7 +3,7 @@ module Smartcore
 
     def execute
       response = execute_request
-      if response.status == success_status
+      if response.code == success_status
         Smartcore::CountriesResponse.new(JSON.parse(response.body)).countries
       else
         process_error(response)

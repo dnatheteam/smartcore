@@ -6,7 +6,7 @@ module Smartcore
       retry_count = 0
       begin
         response = post_json(path: path, data: data.reverse_merge(api_token: api_token))
-        process_error(response) unless response.status == 200
+        process_error(response) unless response.code == 200
         response
       rescue Smartcore::ApiClientInvalidToken
         retry if (retry_count += 1) < 3

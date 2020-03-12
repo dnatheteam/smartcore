@@ -6,7 +6,7 @@ module Smartcore
 
     def execute
       response = execute_request
-      if response.status == success_status
+      if response.code == success_status
         Smartcore::ClientAuthResponce.new(JSON.parse(response.body)).token
       else
         process_error(response)

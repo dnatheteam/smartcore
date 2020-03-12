@@ -1,4 +1,4 @@
-require 'faraday'
+require 'httparty'
 module Smartcore
   class BaseRequest
 
@@ -38,23 +38,15 @@ module Smartcore
       uri = URI(Smartcore.uri)
       uri.path = File.join(uri.path, path) if path.present?
 
-      conn = Faraday.new(url: uri) do |f|
-        f.ssl.verify = false
-        f.response :logger                  # log requests to STDOUT
-        f.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-        f.options.timeout = 140
-        f.options.open_timeout = 120
-      end
-
-      conn.post do |req|
-        req.headers['Content-Type'] = 'application/json'
-        req.body = data.to_json
-      end
+      response = HTTParty.post("#{uri}.json",
+                               multipart: true,
+                               body: data,
+                               verify: false)
     end
 
     def process_error(response)
       # HTTP: unprocessable entity -> returns JSON
-      if response.status == 422
+      if response.code == 422
         json = JSON.parse(response.body)
         case json['error']
           when 'user_verification'
@@ -67,7 +59,7 @@ module Smartcore
             Smartcore::ErrorResponse.new
         end
         # HTTP unauthorized -> API client is not authorized.
-      elsif response.status == 401
+      elsif response.code == 401
         # so, if we have any client token in cache,
         if Rails.cache && Rails.cache.exist?(:api_token)
           # we should delete it
@@ -82,9 +74,9 @@ module Smartcore
         # HTTP not found
         # HTTP locked
         # -> we should do nothing and pass cause this error should be handled in children classes
-      elsif response.status == 404
+      elsif response.code == 404
         raise Smartcore::NotFoundError
-      elsif response.status.in? [304, 423]
+      elsif response.code.in? [304, 423]
         # any other codes are not used in standard cases
       else
         raise Smartcore::BadResponseError

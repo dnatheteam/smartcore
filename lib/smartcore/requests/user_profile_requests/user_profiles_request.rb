@@ -12,8 +12,8 @@ module Smartcore
       Rails.logger.info "--SMARTCORE --- UserProfilesRequest"
       response = execute_request_with_token
 
-      Rails.logger.info "--SMARTCORE --- status --- #{response.status}"
-      if response.status == success_status
+      Rails.logger.info "--SMARTCORE --- status --- #{response.code}"
+      if response.code == success_status
         if profile_id.present? || email.present?
           Smartcore::UserProfileWithDocumentsResponse.new(JSON.parse(response.body))
         else

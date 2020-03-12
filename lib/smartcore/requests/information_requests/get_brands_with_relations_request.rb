@@ -4,7 +4,7 @@ module Smartcore
     attribute :per_page, Integer, default: 500
     def execute
       response = execute_request
-      if response.status == success_status
+      if response.code == success_status
         Smartcore::BrandsResponse.new(JSON.parse(response.body)).brands
       else
         process_error(response)

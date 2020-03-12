@@ -4,10 +4,10 @@ module Smartcore
 
     def execute
       response = execute_request
-      if response.status == success_status
+      if response.code == success_status
         data = JSON.parse(response.body)
         Smartcore::CheckPhonePresenceResponse.new( { status: true, api_id: data['api_id'] } )
-      elsif response.status == 404
+      elsif response.code == 404
         Smartcore::CheckPhonePresenceResponse.new( { status: false } )
       else
         process_error(response)

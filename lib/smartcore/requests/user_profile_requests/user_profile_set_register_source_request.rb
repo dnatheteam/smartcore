@@ -6,6 +6,7 @@ module Smartcore
     attribute :value,      String
 
     def execute
+      Rails.logger.info "--SMARTCORE --- UserProfileSetRegisterSourceRequest"
       response = execute_request_with_token
       if response.status == success_status
         true

@@ -7,6 +7,7 @@ module Smartcore
     attribute :type,         Array
 
     def execute
+      Rails.logger.info "--SMARTCORE --- UserActivitiesRequest"
       response = execute_request_with_token
       if response.status == success_status
         Smartcore::UserActivitiesResponse.new(JSON.parse(response.body)).activities

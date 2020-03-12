@@ -5,6 +5,7 @@ module Smartcore
     attribute :per_page,     Integer
 
     def execute
+      Rails.logger.info "--SMARTCORE --- UserSocialProfilesRequest"
       response = execute_request_with_token
       if response.status == success_status
         Smartcore::UserProfilesResponse.new(JSON.parse(response.body))

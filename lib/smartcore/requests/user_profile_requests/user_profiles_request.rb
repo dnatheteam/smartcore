@@ -9,6 +9,7 @@ module Smartcore
     attribute :order,        Hash
 
     def execute
+      Rails.logger.info "--SMARTCORE --- UserProfilesRequest"
       response = execute_request_with_token
 
       Rails.logger.info "--SMARTCORE --- status --- #{response.status}"

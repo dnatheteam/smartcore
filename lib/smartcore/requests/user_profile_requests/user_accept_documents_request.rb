@@ -3,6 +3,7 @@ module Smartcore
     attribute :user_token, String
 
     def execute
+      Rails.logger.info "--SMARTCORE --- UserAcceptDocumentsRequest"
       response = execute_request_with_token
       if response.status == success_status
         Smartcore::SiteDocumentsResponse.new(JSON.parse(response.body))

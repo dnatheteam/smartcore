@@ -41,6 +41,7 @@ module Smartcore
     attribute :skip_validate,  Boolean, default: false
 
     def execute
+      Rails.logger.info "--SMARTCORE --- UserProfileCreateRequest"
       response = execute_request_with_token
       if response.status == success_status
         UserProfileResponse.new(JSON.parse(response.body))

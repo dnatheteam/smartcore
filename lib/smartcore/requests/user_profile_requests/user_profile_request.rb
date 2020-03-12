@@ -5,6 +5,7 @@ module Smartcore
 
 
     def execute
+      Rails.logger.info "--SMARTCORE --- UserProfileRequest"
       response = execute_request_with_token
       if response.status == success_status
         Smartcore::UserProfileResponse.new(JSON.parse(response.body)).profile

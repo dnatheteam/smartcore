@@ -46,7 +46,7 @@ module Smartcore
                                  open_timeout: 0.2,
                                  verify: false)
       rescue Net::OpenTimeout
-        retry if (retries += 1) < 5
+        retry if (retries += 1) < 10
       end
     end
 

@@ -38,10 +38,16 @@ module Smartcore
       uri = URI(Smartcore.uri)
       uri.path = File.join(uri.path, path) if path.present?
 
-      response = HTTParty.post("#{uri}.json",
-                               multipart: true,
-                               body: data,
-                               verify: false)
+      begin
+        retries ||= 0
+        response = HTTParty.post("#{uri}.json",
+                                 multipart: true,
+                                 body: data,
+                                 open_timeout: 0.2,
+                                 verify: false)
+      rescue Net::OpenTimeout
+        retry if (retries += 1) < 10
+      end
     end
 
     def process_error(response)

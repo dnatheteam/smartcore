@@ -24,7 +24,7 @@ module Smartcore
     if Rails.env.development?
       'http://localhost:3000/api/v1'
     else
-      'https://10.20.57.110/api/v1'
+      'https://smartcore.elementbat.ru/api/v1'
     end
   end
 
